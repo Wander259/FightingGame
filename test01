@@ -1,0 +1,21 @@
+package FightingGame;
+
+public class test01 {
+    public static void main(String[] args) {
+        Person p1 = new Person("A", 100);
+        Person p2 = new Person("B", 100);
+        while(true){
+            p1.attackPerson(p2);
+            if(p2.getHP()==0){
+                System.out.println("Game Over!"+"The Winner is A!");
+                break;
+            }
+            p2.attackPerson(p1);
+
+            if(p1.getHP()==0){
+                System.out.println("Game over!"+"The Winner is B!");
+                break;
+            }
+        }
+    }
+}
