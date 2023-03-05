@@ -1,0 +1,50 @@
+package FightingGame;
+import java.util.Random;
+public class Person {
+    private String Name;
+    private int HP;
+
+
+    public Person() {
+    }
+
+    public Person(String Name, int HP) {
+        this.Name = Name;
+        this.HP = HP;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+
+    public int getHP() {
+        return HP;
+    }
+
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+    //随机函数计算造成的伤害hurt
+    Random r=new Random();
+    int hurt = r.nextInt(20)+1;  //伤害范围是0+1到19+1
+
+    //攻击函数
+    public void attackPerson(Person p){
+        p.setHP(p.getHP()-hurt);
+        System.out.println(this.getName()+"打了"+p.getName()+"一下，造成了"+hurt+"点伤害。");
+        if(p.getHP()<=0){
+            p.setHP(0);
+            System.out.println(p.getName()+"倒了。");
+        }
+        else{
+            System.out.println(p.getName()+"还剩"+p.getHP()+"点血。");
+        }
+    }
+}
